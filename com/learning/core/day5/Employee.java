@@ -100,7 +100,7 @@ public class Employee
 	}
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + ", phoneNo=" + phoneNo + ", employeeId=" + employeeId + ", passportNo="
-				+ passportNo + ", licenseNo=" + licenseNo + ", panCardNo=" + panCardNo + ", voterId=" + voterId + "]";
+		return name + " " + phoneNo + " " + employeeId + " "
+				+ passportNo + " " + licenseNo + " " + panCardNo + " " + voterId;
 	}
 }

@@ -23,6 +23,6 @@ public class Register <T>
 
     void getRegisterID(T obj) 
     {
-        System.out.println(this.registerId); //+ " " + obj.toString()
+        System.out.println(this.registerId+ " " + obj.toString());
     }
 }

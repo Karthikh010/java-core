@@ -107,7 +107,7 @@ public class Student
 
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", phoneNo=" + phoneNo + ", passportNo=" + passportNo + ", licenseNo="
-				+ licenseNo + ", panCardNo=" + panCardNo + ", voterId=" + voterId + "]";
+		return name + " " + phoneNo + " " + passportNo + " "
+				+ licenseNo + " " + panCardNo + " " + voterId;
 	}
 }
