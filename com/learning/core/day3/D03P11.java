@@ -1,26 +1,49 @@
-<<<<<<< HEAD
 package com.learning.core.day3;
+import java.util.*;
+import java.util.Scanner;
 
-public class D03P11 {
-
-	public static void main(String[] args) 
+public class D03P11 
+{
+	static String encodeString(String str)
 	{
-		
-
+		HashMap<Character, Integer> map = new HashMap<>();
+		String res = "";
+		int i = 0;
+		char ch;
+		for (int j = 0; j < str.length(); j++) 
+		{
+			ch = str.charAt(j);
+			if (!map.containsKey(ch))
+			{
+				map.put(ch, i++);
+			}
+			res += map.get(ch);
+		}
+		return res;
 	}
 
-}
-=======
-package com.learning.core.day3;
-
-public class D03P11 {
-
-	public static void main(String[] args) 
+	static void findMatchedWords(String[] dict, String pattern)
 	{
-		
+		int len = pattern.length();
+		String hash = encodeString(pattern);
 
+		for (String word : dict) 
+		{
+			
+			if (word.length() == len && encodeString(word).equals(hash))
+			{
+				System.out.print(word + " ");
+			}
+		}
 	}
+	
+	public static void main(String args[])
+	{
+		String[] dict = { "abb", "abc", "xyz", "xyy" };
+		String pattern = "foo";
 
+		findMatchedWords(dict, pattern);
+	}
 }
->>>>>>> 2fe23d38fc0011e70d3e80d5a62599f49f5284b5
-//not finished
+
+

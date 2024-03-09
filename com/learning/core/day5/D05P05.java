@@ -28,23 +28,12 @@ public class D05P05
 			if(p.getpID().equals(id))
 			{
 				pro.remove(p);
+				break;
 			}
 		}
-		for(Product pp : pro)
+		for(Product p : pro)
 		{
-			System.out.println(pp);
+			System.out.println(p);
 		}
-//		Iterator<Product> iterator = pro.iterator();
-//        while (iterator.hasNext()) 
-//        {
-//            Product product = iterator.next();
-//            if (product.getpID() == id) 
-//            {
-//                iterator.remove();
-//                System.out.println("Product with ID removed successfully.");
-//            }
-//        }
-//        System.out.println(pro);
-
 	}
 }

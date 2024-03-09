@@ -1,63 +1,79 @@
-<<<<<<< HEAD
 package com.learning.core.day3;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
-public class D03P09 {
-
-	public static void main(String[] args) 
+public class D03P09 
+{
+	public static boolean possibleOrderAmongString(String s[], int n)
 	{
-		Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of elements: ");
-        int n=sc.nextInt();
-        System.out.print("Enter the strings: ");
-        String[] str= new String[n];
-        for(int i=0;i<n;i++)
-        {
-        	str[i]=sc.nextLine();
-        }
-        for(int j=0;j<n;j++)
-        {
-        	for(int k=j+1;k<n;k++)
-        	{
-        		if(str[j].charAt(str[j].length()-1)==str[k].charAt(0))
-        		{
-        			
-        		}
-        	}
-        }// not finished
+		int m = 26;
+		boolean mark[] = new boolean[m];
+		int in[] = new int[26];
+		int out[] = new int[26];		    
+		
+		ArrayList<ArrayList<Integer>> adj = new ArrayList< ArrayList<Integer>>();
+		for(int i = 0; i < m; i++)
+		{
+			adj.add(new ArrayList<>());
+		}
+		for(int i = 0; i < n; i++) 
+		{
+			int f = (int)(s[i].charAt(0) - 'a');
+			int l = (int)(s[i].charAt(s[i].length() - 1) - 'a');
+			mark[f] = mark[l] = true;
+			in[l]++;
+			out[f]++;
+			adj.get(f).add(l);
+	    }
+		for(int i = 0; i < m; i++)
+		{
+			if (in[i] != out[i])
+			{
+				return false;
+			}
+		}
+		return isConnected(adj, mark,s[0].charAt(0) - 'a');
 	}
-
-}
-=======
-package com.learning.core.day3;
-
-import java.util.Scanner;
-
-public class D03P09 {
-
-	public static void main(String[] args) 
+	
+	public static boolean isConnected(ArrayList<ArrayList<Integer>> adj,boolean mark[], int src)
 	{
-		Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of elements: ");
-        int n=sc.nextInt();
-        System.out.print("Enter the strings: ");
-        String[] str= new String[n];
-        for(int i=0;i<n;i++)
-        {
-        	str[i]=sc.nextLine();
-        }
-        for(int j=0;j<n;j++)
-        {
-        	for(int k=j+1;k<n;k++)
-        	{
-        		if(str[j].charAt(str[j].length()-1)==str[k].charAt(0))
-        		{
-        			
-        		}
-        	}
-        }// not finished
+	    boolean visited[] = new boolean[26];
+	    dfs(adj, visited, src);
+	    for(int i = 0; i < 26; i++)
+	    {
+	    	if (mark[i] && !visited[i])
+	    	{
+	    		return false;
+	    	}
+	    }
+	    return true;
 	}
-
+	
+	public static void dfs(ArrayList<ArrayList<Integer>> adj,boolean visited[], int src)
+		{
+		    visited[src] = true;
+		    for(int i = 0; i < adj.get(src).size(); i++)
+		    {
+		        if (!visited[adj.get(src).get(i)])
+		        {
+		            dfs(adj, visited, adj.get(src).get(i));
+		        }
+		    }
+		}
+		 
+	public static void main(String[] args)
+	{
+		String s[] = { "abc","efg", "cde", "ghi", "ija"};
+	    int n = s.length;
+	    if (possibleOrderAmongString(s, n))
+	    {
+	    	System.out.println("Yes");
+	    }
+	    else
+	    {
+	    	System.out.println("No");
+	    }
+	}
 }
->>>>>>> 2fe23d38fc0011e70d3e80d5a62599f49f5284b5

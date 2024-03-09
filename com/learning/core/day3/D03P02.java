@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.learning.core.day3;
 
 import java.util.Arrays;
@@ -43,49 +42,3 @@ public class D03P02
 	}
 
 }
-=======
-package com.learning.core.day3;
-
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class D03P02 
-{
-
-	public static void main(String[] args) 
-	{
-		Scanner sc= new Scanner(System.in);
-		System.out.println("Enter an array of 5 numbers between 1 and 40 : ");
-		int[] arr= new int[5];
-		for(int j=0; j<5; j++)
-		{
-			arr[j]=sc.nextInt();
-		}
-		//System.out.println(Arrays.toString(arr));
-		System.out.println("Enter 2 numbers between 1 and 40 : ");
-		int n=sc.nextInt();
-		int m=sc.nextInt();
-		int c=0,d=0;
-		for(int i: arr)
-		{
-			if(i==n)
-			{
-				c++;
-			}
-			if(i==m)
-			{
-				d++;
-			}
-		}
-		if(c>0 && d>0)
-		{
-			System.out.println("Its Bingo");
-		}
-		else
-		{
-			System.out.println("Not Found");
-		}
-	}
-
-}
->>>>>>> 2fe23d38fc0011e70d3e80d5a62599f49f5284b5

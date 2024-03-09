@@ -22,7 +22,7 @@ public class D02P17
 			}
 			if(f==1)
 			{
-				System.out.print(i+", ");
+				System.out.print(i+" ");
 			}
 		}
 	}
