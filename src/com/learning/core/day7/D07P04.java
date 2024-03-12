@@ -20,7 +20,7 @@ public class D07P04
 	                {
 	                    operand.append(expression.charAt(i++));
 	                }
-	                i--; // Move back one step as we've advanced extra in the loop
+	                i--; 
 	                numbers.push(Integer.parseInt(operand.toString()));
 	            } 
 	            else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/') 
