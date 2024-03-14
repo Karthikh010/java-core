@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.TreeSet;
 
-class Book implements Comparable<Book>
+class Book1 implements Comparable<Book1>
 {
 	private int bookId;
 	private String title;
@@ -12,11 +12,11 @@ class Book implements Comparable<Book>
 	private Date dOfPubl;
 	private String author;
 	
-	public Book() {
+	public Book1() {
 		super();
 	}
 
-	public Book(int bookId, String title, double price, Date dOfPubl, String author) {
+	public Book1(int bookId, String title, double price, Date dOfPubl, String author) {
 		super();
 		this.bookId = bookId;
 		this.title = title;
@@ -78,7 +78,7 @@ class Book implements Comparable<Book>
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Book other = (Book) obj;
+		Book1 other = (Book1) obj;
 		return Objects.equals(author, other.author) && bookId == other.bookId && Objects.equals(dOfPubl, other.dOfPubl)
 				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
 				&& Objects.equals(title, other.title);
@@ -90,8 +90,7 @@ class Book implements Comparable<Book>
 				+ dOfPubl.getDate()+"/"+dOfPubl.getMonth()+"/"+dOfPubl.getYear();
 	}
 
-	@Override
-	public int compareTo(Book o) 
+	public int compareTo(Book1 o) 
 	{
 		return this.author.compareTo(o.author);
 	}
@@ -103,16 +102,16 @@ public class D06P04
 {
 	public static void main(String[] args) 
 	{
-		TreeSet<Book> b= new TreeSet<>();
+		TreeSet<Book1> b= new TreeSet<>();
 		
-		b.add(new Book(1001,"Python Learning",715,new Date(2020,2,2),"Martic C. Brown"));
-		b.add(new Book(1002,"Modern Mainframe",295,new Date(1997,5,19),"Sharad"));
-		b.add(new Book(1003,"java Programming",523,new Date(1984,11,23),"Gilad Bracha"));
-		b.add(new Book(1004,"Read C++",295,new Date(1984,11,19),"Henry Harvin"));
-		b.add(new Book(1005,".Net Platform",3497,new Date(1984,3,6),"Mark J. Price"));
+		b.add(new Book1(1001,"Python Learning",715,new Date(2020,2,2),"Martic C. Brown"));
+		b.add(new Book1(1002,"Modern Mainframe",295,new Date(1997,5,19),"Sharad"));
+		b.add(new Book1(1003,"java Programming",523,new Date(1984,11,23),"Gilad Bracha"));
+		b.add(new Book1(1004,"Read C++",295,new Date(1984,11,19),"Henry Harvin"));
+		b.add(new Book1(1005,".Net Platform",3497,new Date(1984,3,6),"Mark J. Price"));
 		
 		//System.out.println(b);
-		for (Book bk : b) 
+		for (Book1 bk : b) 
 		{
             System.out.println(bk);
         }
