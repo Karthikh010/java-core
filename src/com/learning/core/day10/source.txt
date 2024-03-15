@@ -1,0 +1,2 @@
+This is source.txt file for D10P01
+to be copied to destination.txt
